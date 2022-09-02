@@ -49,7 +49,8 @@ const categoryPost = (posts) =>{
               <p class="card-text">${post.details.substring(0, 350) + '.....'}</p>
               <img style="height: 40px;" src="${post.author.img}" class="rounded-circle float-start" alt="..."><p class="card-text"><small class="text-muted">${post.author.name}</small></p>
               <div class="text-end">  
-                <button type="button" class="btn btn-info">Read More</button>
+                
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">More Details</a>
               </div> 
               <p class="text-center">View: ${post ? post.total_view : 'no data found' }</p>
                 
