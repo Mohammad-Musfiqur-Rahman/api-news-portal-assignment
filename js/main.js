@@ -15,7 +15,7 @@ const displayCategoryMenu = categories =>{
         const li = document.createElement('li');
         li.classList.add('nav-item', 'm-3');
         li.innerHTML=`
-        <a class="nav-link active fs-5" aria-current="page" href="#" onclick="categoryApi(${category.category_id})">${category.category_name}</a>
+        <a class="nav-link active fs-5" aria-current="page" href="#" onclick="categoryApi(${category ? category.category_id : 'no data found'})">${category.category_name}</a>
         `
         categoryUl.appendChild(li);
 
@@ -51,7 +51,7 @@ const categoryPost = (posts) =>{
               <div class="text-end">  
                 <button type="button" class="btn btn-info">Read More</button>
               </div> 
-              <p class="text-center">View: ${post.total_view}</p>
+              <p class="text-center">View: ${post ? post.total_view : 'no data found' }</p>
                 
               </div>
           </div>
