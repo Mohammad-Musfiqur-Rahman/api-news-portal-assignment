@@ -64,4 +64,25 @@ const categoryPost = (posts) =>{
 }
 
 
+const modalApi = async() =>{
+    const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data)
+}
+
+const showModal = () => {
+     
+  
+}
+
+
+
+
+
+modalApi();
+
+
+
+
 newApi();
