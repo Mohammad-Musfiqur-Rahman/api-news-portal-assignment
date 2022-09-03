@@ -48,9 +48,8 @@ const categoryPost = (posts) =>{
               <h5 class="card-title">${post.title}</h5>
               <p class="card-text">${post.details.substring(0, 350) + '.....'}</p>
               <img style="height: 40px;" src="${post.author.img}" class="rounded-circle float-start" alt="..."><p class="card-text"><small class="text-muted">${post.author.name}</small></p>
-              <div class="text-end">  
-                
-                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">More Details</a>
+              <div class="text-end">                  
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
               </div> 
               <p class="text-center">View: ${post ? post.total_view : 'no data found' }</p>
                 
@@ -73,7 +72,7 @@ const modalApi = async() =>{
 
 const showModal = () => {
      
-  
+
 }
 
 
