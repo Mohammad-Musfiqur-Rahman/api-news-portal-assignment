@@ -10,11 +10,11 @@ const newApi = async() =>{
     }
     catch(error){
       console.log(error)
-    }
-    
+    }    
 }
 
 const displayCategoryMenu = categories =>{
+  
     const categoryUl = document.getElementById('catogory-ul');
     for(let category of categories){
         // console.log(category);
@@ -29,16 +29,18 @@ const displayCategoryMenu = categories =>{
 }
 
 const categoryApi = async(category_id) =>{
+  toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/0${category_id}`;
     const res = await fetch(url);
     const data = await res.json();
     // console.log(category_id , data.data[0]);
     // console.log(category_id , url);
     categoryPost(data.data);
+    
 }
 
 const categoryPost = (posts) =>{
-    
+   
     const displayCard = document.getElementById('display-card');    
     displayCard.textContent = '';
     for(let post of posts){
@@ -66,8 +68,20 @@ const categoryPost = (posts) =>{
         const postFound = document.getElementById('news-found');
         postFound.innerText = posts.length;
     }
+    toggleSpinner(false);
+    
 }
 
+
+const toggleSpinner = isLoading =>{
+  const spinnerDiv = document.getElementById('spinner-div');
+  if(isLoading){
+    spinnerDiv.classList.remove('d-none');
+  }
+  else{
+    spinnerDiv.classList.add('d-none');
+  }
+}
 
 const modalApi = async(news_id) =>{
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
@@ -99,18 +113,7 @@ const showModal = (modals) => {
    </div>
      `
    modalArea.appendChild(div);
-
-
-    // for(let modal of modals){
-    //   console.log(modal)
-    // }
-     
-    //  modals.forEach(modal => {
-    //   console.log(modal, modals);      
-    //  });
+  //  toggleSpinner(false);
 
 }
-// showModal();
-
-// modalApi('0282e0e58a5c404fbd15261f11c2ab6a');
 newApi();

@@ -19,7 +19,7 @@
               </button>
 
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav fs-3">
+                <ul class="navbar-nav fs-3 nav nav-pills">
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                   </li>
@@ -43,7 +43,7 @@
               </button>
 
               <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
-                <ul id="catogory-ul" class="navbar-nav">
+                <ul id="catogory-ul" class="navbar-nav nav">
                   <!-- <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
@@ -58,6 +58,18 @@
     <h2>Total News: <span id="news-found" class="fs-1 text-primary"></span></h2> 
 
     <main>
+
+
+      <!-- Spinner Start-->
+      <div id="spinner-div" class="text-center d-none">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <!-- Spinner End-->
+
+
+
         <!-- Post Display Start -->
     <div id="display-card" class="card my-3">       
         <!-- <div class="row g-0">
@@ -83,10 +95,7 @@
 
 
 
-      <!-- Modal -->
-
-
-
+      <!-- Modal Start -->
       <!-- Button trigger modal -->
         <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Launch demo modal
@@ -109,14 +118,10 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
               </div> -->
-
             <!-- </div> -->
-
-
-          </div>
-          
+          </div>          
         </div>
-
+        <!-- Modal End -->
 
 
       
