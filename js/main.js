@@ -37,12 +37,18 @@ const categoryApi = async(category_id) =>{
     // console.log(category_id , url);
     categoryPost(data.data);
     
+    
 }
 
 const categoryPost = (posts) =>{
+
+     
    
     const displayCard = document.getElementById('display-card');    
     displayCard.textContent = '';
+
+  
+   
     for(let post of posts){
         // console.log(post)
         const div = document.createElement('div');
@@ -65,9 +71,16 @@ const categoryPost = (posts) =>{
           </div>
         `
         displayCard.appendChild(div)
-        const postFound = document.getElementById('news-found');
-        postFound.innerText = posts.length;
+        
     }
+       const postFound = document.getElementById('news-found');
+        
+        if(posts.length === 0){
+          postFound.innerText = "No news available";
+       }
+       else{
+        postFound.innerText = posts.length;
+       }
     toggleSpinner(false);
     
 }
