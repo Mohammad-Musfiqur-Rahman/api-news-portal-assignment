@@ -36,7 +36,7 @@ const categoryPost = (posts) =>{
     const displayCard = document.getElementById('display-card');    
     displayCard.textContent = '';
     for(let post of posts){
-        // console.log(post)
+        console.log(post)
         const div = document.createElement('div');
         div.classList.add('row', 'g-4');
         div.innerHTML=`
@@ -49,7 +49,7 @@ const categoryPost = (posts) =>{
               <p class="card-text">${post.details.substring(0, 350) + '.....'}</p>
               <img style="height: 40px;" src="${post.author.img}" class="rounded-circle float-start" alt="..."><p class="card-text"><small class="text-muted">${post.author.name}</small></p>
               <div class="text-end">                  
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
+              <button onclick="showModal(${post._id})" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
               </div> 
               <p class="text-center">View: ${post ? post.total_view : 'no data found' }</p>
                 
@@ -63,23 +63,30 @@ const categoryPost = (posts) =>{
 }
 
 
-const modalApi = async() =>{
-    const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`;
+const modalApi = async(news_id) =>{
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data)
+    showModal(data.data)
 }
 
-const showModal = () => {
-     
+const showModal = (modals) => {
+     const modalArea = document.getElementById('exampleModal');
+      
+     modals.forEach(modal => {
+      const div = document.createElement('div');
+      div.classList.add('modal-dialog', 'modal-dialog-centered');
+      div.innerHTML=`
+      
+      `
+
+      console.log(modal, modals);
+     });
 
 }
 
 
-
-
-
-modalApi();
+// modalApi('0282e0e58a5c404fbd15261f11c2ab6a');
 
 
 
