@@ -55,7 +55,7 @@ const categoryPost = (posts) =>{
               <p class="card-text">${post.details.substring(0, 350) + '.....'}</p>
               <img style="height: 40px;" src="${post.author.img}" class="rounded-circle float-start" alt="..."><p class="card-text"><small class="text-muted">${post.author.name}</small></p>
               <div class="text-end">                  
-              <button onclick="showModal('${post._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">More details</button>
+              <button onclick="modalApi('${post._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">More details</button>
               </div> 
               <p class="text-center">View: ${post ? post.total_view : 'no data found' }</p>
                 
@@ -78,7 +78,8 @@ const modalApi = async(news_id) =>{
 }
 
 const showModal = (modals) => {
-     const modalArea = document.getElementById('modal-div');     
+     const modalArea = document.getElementById('modal-div'); 
+     modalArea.textContent = '';    
      console.log(modals);
 
      const div = document.createElement('div');
@@ -92,7 +93,7 @@ const showModal = (modals) => {
      ${modals[0].details}
    </div>
    <img style="height: 40px; width: 50px;" src="${modals[0].author.img}" class="rounded-circle float-start" alt="..."><p class="card-text"><small class="text-muted">${modals[0].author.name}</small></p>
-   <p class="text-center">View: ${modals[0].author ? modals[0].author.published_date : 'no data found' }</p>
+   <p class="text-center">Published date & time: ${modals[0].author ? modals[0].author.published_date : 'no data found' }</p>
    <div class="modal-footer">   
      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
    </div>
@@ -111,5 +112,5 @@ const showModal = (modals) => {
 }
 // showModal();
 
-modalApi('0282e0e58a5c404fbd15261f11c2ab6a');
+// modalApi('0282e0e58a5c404fbd15261f11c2ab6a');
 newApi();
